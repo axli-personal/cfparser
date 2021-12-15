@@ -1,0 +1,4 @@
+# Basic Test
+name    = CentOS - Base
+baseurl = https://mirrors.somesite.com
+enabled = True
