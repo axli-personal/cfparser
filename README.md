@@ -2,7 +2,7 @@
 
 ## Speed
 
-It was Implemented by binary tree and only suitable for small project.
+It was Implemented by **binary tree** and only suitable for small project.
 
 ## Ignore
 
@@ -15,10 +15,15 @@ You can receive signal when config change immediately by channel.
 ## Example
 
 ```go
-parser := NewCFParser(file, "#", "=") // any specific prefix.
-validCount := parser.ReadAll()
-fmt.Printf("read %v valid config", validCount)
-if pair := parser.Get("key"); pair != nil {
-	// any api you like.
+import "github.com/axli-personal/cfparser"
+
+CFP := cfparser.NewCFParser(file, "#", ' ')
+
+numOfValidLines := CFP.ReadAll()
+
+fmt.Printf("read %v valid lines", numOfValidLines)
+
+if pair := CFP.Get("key"); pair != nil {
+    val := pair.String()
 }
 ```
