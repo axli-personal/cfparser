@@ -27,6 +27,7 @@ func (pair *CPair) Bool() bool {
 }
 
 // When the pair change in the future, you will receive the modified pair immediately.
+//
 // The channel will create when you call this, and it's buffered channel with size of 1.
 func (pair *CPair) Watch() chan *CPair {
 	if pair.signal == nil {

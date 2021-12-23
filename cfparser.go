@@ -43,6 +43,7 @@ func (cfp *CFParser) Cut(split byte) {
 }
 
 // Start to read. Return the number of valid lines without comment and return -1 when missing parameters.
+//
 // NewCFParser contains all the parameters this function needed and ignore empty prefix is invalid.
 func (cfp *CFParser) ReadAll() int {
 	if cfp.reader == nil || len(cfp.ignore) == 0 || cfp.split == 0 {
@@ -61,7 +62,7 @@ func (cfp *CFParser) Get(key string) *CPair {
 }
 
 // Put a config pair by yourself to provide default config.
-// You can also turn on the signalMode
+//
 // Most users don't need to do this, use ReadAll instead.
 func (cfp *CFParser) Put(key string, val string) {
 	key = strings.ToLower(strings.TrimSpace(key))

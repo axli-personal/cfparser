@@ -12,19 +12,19 @@ func TestCFParser(t *testing.T) {
 		t.Log(err)
 	}
 
-	parser := NewCFParser(file, "#", '=')
-	validCount := parser.ReadAll()
-	t.Logf("read %v valid config from %v", validCount, path)
+	CFP := NewCFParser(file, "#", '=')
+	numOfValidLines := CFP.ReadAll()
+	t.Logf("read %v valid lines", numOfValidLines)
 
-	if pair := parser.Get("name"); pair.String() != "CentOS - Base" {
+	if pair := CFP.Get("name"); pair.String() != "CentOS - Base" {
 		t.Fatalf("expected 'CentOS - Base', but get '%v'", pair.String())
 	}
 
-	if pair := parser.Get("baseurl"); pair.String() != "https://mirrors.somesite.com" {
+	if pair := CFP.Get("baseurl"); pair.String() != "https://mirrors.somesite.com" {
 		t.Fatalf("expected 'https://mirrors.somesite.com', but get '%v'", pair.String())
 	}
 
-	if pair := parser.Get("enabled"); pair.Bool() != true {
+	if pair := CFP.Get("enabled"); pair.Bool() != true {
 		t.Fatal("expected true, but get false")
 	}
 }
